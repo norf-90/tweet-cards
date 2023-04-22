@@ -20,6 +20,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # если вы деплоите на https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:norf-90/Vite-template.git master:gh-pages
+# git push -f git@github.com:norf-90/tweet-cards.git master:gh-pages
 
 cd -
