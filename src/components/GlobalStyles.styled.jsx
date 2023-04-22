@@ -1,13 +1,13 @@
 import { injectGlobal } from '@emotion/css';
 import 'modern-normalize';
 
-export const GlobalStyles = () => injectGlobal`
+export const GlobalStyles = ({ src }) => injectGlobal`
    body {
-    background-image: url('https://cdn.pixabay.com/photo/2017/10/30/23/34/lamp-2903830_960_720.jpg');
+    background-image: url(${src});
     background-size: cover;
     background-repeat: no-repeat;
    background-attachment: fixed ;
-    padding: 50px 30px;
+    /* padding: 50px 30px; */
     margin: 0;
    font-family: 'Mina', sans-serif;
     -webkit-font-smoothing: antialiased;

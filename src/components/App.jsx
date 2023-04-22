@@ -1,13 +1,12 @@
+import { Route, Routes } from 'react-router-dom';
+
+import SharedLayout from '../pages/SharedLayut/SharedLayout';
+
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center'
-      }}
-    >
-      <p style={{ color: '#ffffff', fontSize: '100px' }}>Vite template</p>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />} />
+    </Routes>
   );
 }
 
