@@ -2,10 +2,10 @@
   "name": "vite-react-template",
   "private": true,
   "version": "1.0.0",
-  "description": "my own custom template",
+  "description": "my template",
   "repository": {
     "type": "git",
-    "url": "https://github.com/norf-90/Vite-template"
+    "url": "https://github.com/norf-90/tweet-cards"
   },
   "keywords": [
     "vite",
