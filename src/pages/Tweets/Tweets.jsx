@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Home = () => {
+const Tweets = () => {
   const [tweets, setTweets] = useState(null);
   return (
     <main>
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Tweets;
