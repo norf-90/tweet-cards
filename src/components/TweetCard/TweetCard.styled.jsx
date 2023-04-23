@@ -64,6 +64,10 @@ export const InnerCircle = styled.div`
   background: #5736a3;
   transform: translateX(-50%) translateY(-50%);
 `;
+export const Icon = styled.img`
+  width: 62;
+  height: 62px;
+`;
 
 export const TextContainer = styled.div`
   position: absolute;
@@ -81,8 +85,28 @@ export const Text = styled.p`
   font-size: 20px;
   line-height: 24px;
   text-transform: uppercase;
-
   color: #ebd8ff;
+  :first-of-type {
+    padding: 0 0 16px;
+  }
+  :last-of-type {
+    padding: 0 0 26px;
+  }
 `;
 
-export const Icon = styled.img``;
+export const Button = styled.button`
+  width: 196px;
+  padding: 14px 0;
+
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  text-transform: uppercase;
+  color: #373737;
+
+  background-color: ${props => (props.following ? '#5CD3A8' : '#EBD8FF')};
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10.3108px;
+`;

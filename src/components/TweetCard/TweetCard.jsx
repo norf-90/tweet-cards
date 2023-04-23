@@ -10,10 +10,12 @@ import {
   InnerCircle,
   TextContainer,
   Text,
+  Button,
 } from './TweetCard.styled';
 import icon from '../../assets/images/icon.png';
 import logo from '../../assets/images/tweet-card-logo.png';
 import decorativeImg from '../../assets/images/tweet-card-pic.png';
+import redactValue from '../../utils/redactValue';
 
 const TweetCard = ({ following = false, tweets, followers, imgUrl }) => (
   <Container>
@@ -26,9 +28,11 @@ const TweetCard = ({ following = false, tweets, followers, imgUrl }) => (
       </InnerCircle>
     </OuterCircle>
     <TextContainer>
-      <Text> 777 tweets</Text>
-      <Text>100,500 Followers</Text>
-      <button type="button">Follow</button>
+      <Text> {redactValue(tweets)} Tweets</Text>
+      <Text>{redactValue(followers)} Followers</Text>
+      <Button type="button" following={following}>
+        {following ? 'Following' : 'Follow'}
+      </Button>
     </TextContainer>
   </Container>
 );
