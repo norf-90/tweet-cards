@@ -14,7 +14,7 @@ export const Title = styled.h2`
   margin: 0 0 20px;
   font-size: 40px;
   color: #ed62ff;
-  text-shadow: 7px 7px 4px #000000;
+  text-shadow: 3px 3px 4px #000000;
   font-weight: 900;
 `;
 
@@ -22,7 +22,7 @@ export const Text = styled.p`
   margin: 0 0 20px;
   font-size: 25px;
   color: #ed62ff;
-  text-shadow: 5px 5px 3px #000000;
+  text-shadow: 3px 3px 4px #000000;
   font-weight: 700;
 `;
 
@@ -36,5 +36,5 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   padding: 0 0 20px;
-  text-shadow: 7px 7px 4px #000000;
+  text-shadow: 3px 3px 4px #000000;
 `;

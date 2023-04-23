@@ -3,7 +3,9 @@ import 'modern-normalize';
 
 export const GlobalStyles = ({ src }) => injectGlobal`
    body {
-    background-image: url(${src});
+    /* background-image: url(${src});
+     */
+    background-color: #3f3c3c;
     background-size: cover;
     background-repeat: no-repeat;
    background-attachment: fixed ;
