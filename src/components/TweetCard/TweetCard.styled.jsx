@@ -63,6 +63,7 @@ export const InnerCircle = styled.div`
   border-radius: 50%;
   background: #5736a3;
   transform: translateX(-50%) translateY(-50%);
+  overflow: hidden;
 `;
 export const Icon = styled.img`
   width: 62;

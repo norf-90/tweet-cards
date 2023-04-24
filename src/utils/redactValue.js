@@ -1,6 +1,7 @@
 const redactValue = value => {
   if (value <= 999) return value;
   return value
+    .toString()
     .split('')
     .reverse()
     .map((element, index, array) => {

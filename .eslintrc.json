@@ -68,10 +68,7 @@
     "semi": "error",
     "import/no-extraneous-dependencies": [
       "error",
-      {
-        "devDependencies": true
-        // "packageDir": "./"
-      }
+      { "includeInternal": true, "includeTypes": true }
     ],
     "import/prefer-default-export": "off"
   }
