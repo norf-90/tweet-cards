@@ -1,16 +1,28 @@
-- [Vite](https://vitejs.dev/)
-- [Babel](https://babeljs.io/) Compiler for next generation JavaScript.
-- [React Router](https://reactrouter.com/) Routing for React.js
-- [ESLint](https://eslint.org/) Find and fix problems in your JavaScript code.
-- [Prettier](https://prettier.io/) Opinionated code formatter.
-- [@emotion/react](https://emotion.sh/)
-- [@emotion/styled](https://emotion.sh/) Styled is a way to create React components that have styles attached to them.
-- [Sass](https://sass-lang.com/) Style Sheets.
+Виконате тестове завдання згідно ТЗЖ
 
-- [prop-types](https://www.npmjs.com/package/prop-types) Runtime type checking for React props and similar objects.
-- [react-error-boundary](https://www.npmjs.com/package/react-error-boundary) Simple reusable React error boundary component.
-- [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb) Airbnb's extensible shared config.
-- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) Linting support of ES2015+ (ES6+) import/export syntax.
-- [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) Enforce accessibility best practices for React components.
-- [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports) Report and remove unused es6 modules.
-- [postcss](https://www.npmjs.com/package/postcss) PostCSS is a tool for transforming CSS with JavaScript plugins.
+Відповідно до макету потрібно реалізувати картки юзера.
+При клікові на кнопку Follow - текст змінюється на Following. Також змінюється колір кнопки. А до кількості фоловерів додається і ваш. Тобто, початкова кількість складає 100,500 фоловерів. При клікові на кнопку буде 100,501.
+При оновлені сторінки має фіксуватись кінцевий результат дій юзера. Тобто, якщо клікнути по кнопці і оновити сторінку - то кнопка все рівно залишається в стані Following із відповідним кольором, а кількість фоловерів НЕ зменшується до початкового значення.
+При повторному клікові на кнопку її текст та колір змінюються до початкового стану. Також змінюється і кількість фоловерів. Вона зменшується на 1 (100,500).
+В коді цифра 100,500 має бути прописана одним значенням (100500). В UI - виведено через кому (100,500).
+Створи свій персональний бекенд для розробки за допомогою UI-сервісу mockapi.io. Створи ресурс users. Використай конструктор ресурсу та опиши об'єкт юзера, як описано нижче.
+
+Юзер
+
+Створюєте юзера в Mockapi з наступними полями: id, user, tweets, followers, avatar (див скріншот нижче).
+Зображення аватарів мають бути прописані окремими url у властивості “avatar”. Можете підібрати їх самостійно.
+Має бути від 12 юзерів з різними значеннями(на ваш розсуд) в базі. Зроби пагінацію. На одній сторінці пагінації має відображатися від 3 твітів, решта підгружатись при натисканні Load More
+Решта вимог аналогічні до вищеописаного технічного завдання.
+Follow та Following
+Макет: https://www.figma.com/file/zun1oP6NmS2Lmgbcj6e1IG/Test?node-id=0%3A1&t=VoiYTfiXggVItgVd-1
+
+Додаткове завдання
+За виконання вам будуть нараховані додаткові бали! Без виконання додаткового завдання ви не зможете отримати максимальний бал.
+
+Створи маршрутизацію, використовуючи React Router.
+
+У застосунку повинні бути такі маршрути. Якщо користувач зайшов за неіснуючим маршрутом, його необхідно перенаправляти на домашню сторінку. '/' – компонент Home, домашня сторінка. Стилізація та оформлення на ваш розсуд '/tweets' - компонент tweets, сторінка із відображенням твітів На сторінці tweets має бути кнопка Back, яка веде на головну сторінку.
+
+Завдання із зірочкою
+
+Додай фільтрацію. Це має бути Dropdown із 3 опціями(оформлення на ваш розсуд): show all, follow, followings show all - показати всі твіти. follow - показати твіти, у яких стан follow. followings - показати твіти, у яких стан following
