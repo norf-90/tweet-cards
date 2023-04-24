@@ -41,7 +41,6 @@ const Tweets = () => {
   }, []);
 
   useEffect(() => {
-    console.log(isFirstLoad.current);
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
       return;
