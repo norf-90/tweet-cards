@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
+import Panel from '../../components/Panel/Panel';
 import TweetList from '../../components/TweetList/TweetList';
 import { putFollowingList } from '../../utils/fetchFollowingList';
 import { getTweets, putTweet } from '../../utils/fetchTweets';
-import { updateTweets } from '../../utils/updateTweets';
+import filterTweets from '../../utils/filterTweets';
+import updateTweets from '../../utils/updateTweets';
 
 const Tweets = () => {
   const [renderData, setRenderData] = useState([]);
-  const [followingIds, setFollowingIds] = useState(null);
+  const [followingIds, setFollowingIds] = useState([]);
   const [status, setStatus] = useState('idle');
   const [tweetId, setTweetId] = useState(undefined);
+  const [filter, setFilter] = useState('all');
 
   const handleCardClick = async id => {
     setTweetId(id);
@@ -21,7 +24,12 @@ const Tweets = () => {
     }
   };
 
+  const handleFilterChange = evt => {
+    setFilter(evt.target.value);
+  };
+
   useEffect(() => {
+    // фетчимо твіти і список
     setStatus('pending');
     getTweets()
       .then(({ tweetsData, followingList }) => {
@@ -65,7 +73,15 @@ const Tweets = () => {
   return (
     <main>
       {status === 'fulfilled' && (
-        <TweetList renderData={renderData} handleCardClick={handleCardClick} />
+        <>
+          {' '}
+          <Panel handleFilterChange={handleFilterChange} />
+          <TweetList
+            // renderData={filterTweets(renderData, filter)}
+            renderData={filterTweets(filter, renderData)}
+            handleCardClick={handleCardClick}
+          />
+        </>
       )}
     </main>
   );

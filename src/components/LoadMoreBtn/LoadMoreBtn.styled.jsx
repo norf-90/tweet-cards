@@ -7,7 +7,7 @@ export const Btn = styled.button`
   align-items: center;
   padding: 10px 30px;
   background-color: transparent;
-  font-size: 30px;
+  font-size: 20px;
   text-transform: uppercase;
   color: #ed62ff;
   border: 5px solid #ed62ff;

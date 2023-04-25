@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import TweetCard from '../TweetCard/TweetCard';
 
 const TweetList = ({ renderData, handleCardClick }) => {
   const [padinationIdx, setPaginationIdx] = useState(3);
+  const [isLoadMore, setIsLoadMore] = useState(true);
 
-  const handleClickLoadMore = () => setPaginationIdx(prev => prev + 3);
+  const handleClickLoadMore = () => {
+    setPaginationIdx(prev => prev + 3);
+  };
+
+  useEffect(() => {
+    if (renderData.length <= padinationIdx) {
+      setIsLoadMore(false);
+    }
+  }, [padinationIdx, renderData]);
 
   return (
     <>
@@ -27,7 +36,7 @@ const TweetList = ({ renderData, handleCardClick }) => {
             </li>
           ))}
       </ul>
-      <LoadMoreBtn handleClick={handleClickLoadMore} />
+      {isLoadMore && <LoadMoreBtn handleClick={handleClickLoadMore} />}
     </>
   );
 };

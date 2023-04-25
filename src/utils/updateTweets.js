@@ -5,4 +5,4 @@ const updateTweets = (tweetsArray, followingList) =>
       : { ...tweet, following: false },
   );
 
-export { updateTweets };
+export default updateTweets;
