@@ -1,38 +1,32 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TweetList from '../../components/TweetList/TweetList';
 import { putFollowingList } from '../../utils/fetchFollowingList';
-import fetchTweets from '../../utils/fetchTweets';
+import { getTweets, putTweet } from '../../utils/fetchTweets';
+import { updateTweets } from '../../utils/updateTweets';
 
 const Tweets = () => {
   const [renderData, setRenderData] = useState([]);
-  const [followingIds, setFollowingIds] = useState([]);
+  const [followingIds, setFollowingIds] = useState(null);
   const [status, setStatus] = useState('idle');
-
-  const isFirstLoad = useRef(true);
-
-  const updateRenderData = () =>
-    renderData.map(tweet =>
-      followingIds.includes(tweet.id)
-        ? { ...tweet, following: true }
-        : { ...tweet, following: false },
-    );
+  const [tweetId, setTweetId] = useState(undefined);
 
   const handleCardClick = async id => {
+    setTweetId(id);
+
     if (!followingIds.includes(id)) {
-      setFollowingIds([...followingIds, id]);
+      setFollowingIds(prevIds => [...prevIds, id]);
     } else {
-      setFollowingIds(() => followingIds.filter(currentId => currentId !== id));
+      setFollowingIds(prevIds => prevIds.filter(prevId => prevId !== id));
     }
-    await putFollowingList(followingIds);
   };
 
   useEffect(() => {
     setStatus('pending');
-    fetchTweets()
+    getTweets()
       .then(({ tweetsData, followingList }) => {
-        setRenderData(tweetsData);
         setFollowingIds(followingList);
+        setRenderData(() => updateTweets(tweetsData, followingList));
         setStatus('fulfilled');
       })
       .catch(() => {
@@ -41,20 +35,37 @@ const Tweets = () => {
   }, []);
 
   useEffect(() => {
-    if (isFirstLoad.current) {
-      isFirstLoad.current = false;
-      return;
-    }
+    if (tweetId === undefined) return;
+
+    setRenderData(prevData => {
+      const data = prevData;
+      const curInx = data.findIndex(tweet => tweet.id === tweetId);
+      if (data[curInx].following) data[curInx].followers -= 1;
+      else data[curInx].followers += 1;
+
+      data[curInx].following = !data[curInx].following;
+
+      putTweet({
+        id: data[curInx].id,
+        user: data[curInx].user,
+        followers: data[curInx].followers,
+        tweets: data[curInx].tweets,
+        avatar: data[curInx].avatar,
+      });
+
+      return data;
+    });
+    setTweetId(undefined);
+  }, [tweetId]);
+
+  useEffect(() => {
     putFollowingList(followingIds);
   }, [followingIds]);
 
   return (
     <main>
       {status === 'fulfilled' && (
-        <TweetList
-          renderData={updateRenderData()}
-          handleCardClick={handleCardClick}
-        />
+        <TweetList renderData={renderData} handleCardClick={handleCardClick} />
       )}
     </main>
   );
