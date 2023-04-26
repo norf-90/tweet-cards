@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import {
@@ -23,6 +24,7 @@ const TweetCard = ({
   followers,
   avatar,
   handleClick,
+  user,
 }) => (
   <Container>
     <Logo src={logo} alt="goit logo" />
@@ -48,3 +50,13 @@ const TweetCard = ({
 );
 
 export default TweetCard;
+
+TweetCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  tweets: PropTypes.number.isRequired,
+  followers: PropTypes.number.isRequired,
+  following: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,3 +16,7 @@ const BackButton = ({ title }) => {
 };
 
 export default BackButton;
+
+BackButton.propTypes = {
+  title: PropTypes.string.isRequired,
+};

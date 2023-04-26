@@ -77,7 +77,6 @@ const Tweets = () => {
           {' '}
           <Panel handleFilterChange={handleFilterChange} />
           <TweetList
-            // renderData={filterTweets(renderData, filter)}
             renderData={filterTweets(filter, renderData)}
             handleCardClick={handleCardClick}
           />

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Container, Title, Select } from './Panel.styled';
@@ -17,3 +18,7 @@ const Panel = ({ handleFilterChange }) => (
 );
 
 export default Panel;
+
+Panel.propTypes = {
+  handleFilterChange: PropTypes.func.isRequired,
+};
