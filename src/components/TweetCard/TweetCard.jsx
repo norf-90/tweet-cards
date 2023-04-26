@@ -12,6 +12,7 @@ import {
   TextContainer,
   Text,
   Button,
+  UserName,
 } from './TweetCard.styled';
 import logo from '../../assets/images/tweet-card-logo.png';
 import decorativeImg from '../../assets/images/tweet-card-pic.png';
@@ -29,6 +30,8 @@ const TweetCard = ({
   <Container>
     <Logo src={logo} alt="goit logo" />
     <DecorativeImage src={decorativeImg} alt="decorative element" />
+    <UserName>{user}</UserName>
+
     <Line />
     <OuterCircle>
       <InnerCircle>

@@ -45,14 +45,16 @@ const TweetList = ({ renderData, handleCardClick }) => {
 export default TweetList;
 
 TweetList.propTypes = {
-  renderData: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    tweets: PropTypes.number.isRequired,
-    followers: PropTypes.number.isRequired,
-    following: PropTypes.bool.isRequired,
-  }).isRequired,
+  renderData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      user: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      tweets: PropTypes.number.isRequired,
+      followers: PropTypes.number.isRequired,
+      following: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
 
   handleCardClick: PropTypes.func.isRequired,
 };

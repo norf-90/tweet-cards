@@ -14,6 +14,11 @@ export const Container = styled.div`
   );
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: 20px;
+  overflow: hidden;
+
+  :hover h3 {
+    transform: translate(-50%) scale(150%);
+  }
 `;
 
 export const Logo = styled.img`
@@ -110,4 +115,17 @@ export const Button = styled.button`
   background-color: ${props => (props.following ? '#5CD3A8' : '#EBD8FF')};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
+`;
+
+export const UserName = styled.h3`
+  position: absolute;
+  font-size: 15px;
+  color: #ffffff;
+  top: 155px;
+  left: 50%;
+  font-weight: 600;
+  text-shadow: 3px 3px 4px #000000;
+
+  transform: translate(-400%) scaleX(50%);
+  transition: transform 200ms linear;
 `;
