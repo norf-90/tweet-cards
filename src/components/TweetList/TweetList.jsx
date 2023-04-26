@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import TweetCard from '../TweetCard/TweetCard';
