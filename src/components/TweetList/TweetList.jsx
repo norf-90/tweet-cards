@@ -1,22 +1,21 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import TweetCard from '../TweetCard/TweetCard';
 
-const TweetList = ({ renderData, handleCardClick }) => {
-  const [padinationIdx, setPaginationIdx] = useState(3);
-  const [isLoadMore, setIsLoadMore] = useState(true);
-
-  const handleClickLoadMore = () => {
-    setPaginationIdx(prev => prev + 3);
-  };
-
-  useEffect(() => {
+const TweetList = ({
+  renderData,
+  handleCardClick,
+  padinationIdx,
+  handleClickLoadMore,
+}) => {
+  const getIsLoadMore = () => {
     if (renderData.length <= padinationIdx) {
-      setIsLoadMore(false);
+      return false;
     }
-  }, [padinationIdx, renderData]);
+    return true;
+  };
 
   return (
     <>
@@ -37,7 +36,7 @@ const TweetList = ({ renderData, handleCardClick }) => {
             </li>
           ))}
       </ul>
-      {isLoadMore && <LoadMoreBtn handleClick={handleClickLoadMore} />}
+      {getIsLoadMore() && <LoadMoreBtn handleClick={handleClickLoadMore} />}
     </>
   );
 };
@@ -57,4 +56,6 @@ TweetList.propTypes = {
   ).isRequired,
 
   handleCardClick: PropTypes.func.isRequired,
+  handleClickLoadMore: PropTypes.func.isRequired,
+  padinationIdx: PropTypes.number.isRequired,
 };

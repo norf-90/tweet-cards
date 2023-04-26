@@ -25,6 +25,7 @@ const TweetCard = ({
   followers,
   avatar,
   handleClick,
+  dropPagIdxToInial,
   user,
 }) => (
   <Container>
@@ -44,7 +45,9 @@ const TweetCard = ({
       <Button
         type="button"
         following={following}
-        onClick={() => handleClick(id)}
+        onClick={() => {
+          handleClick(id);
+        }}
       >
         {following ? 'Following' : 'Follow'}
       </Button>

@@ -11,8 +11,9 @@ const Tweets = () => {
   const [renderData, setRenderData] = useState([]);
   const [followingIds, setFollowingIds] = useState([]);
   const [status, setStatus] = useState('idle');
-  const [tweetId, setTweetId] = useState(undefined);
+  const [tweetId, setTweetId] = useState(undefined); // записуємо id клікнутого твіта
   const [filter, setFilter] = useState('all');
+  const [padinationIdx, setPaginationIdx] = useState(3);
 
   const handleCardClick = async id => {
     setTweetId(id);
@@ -26,7 +27,10 @@ const Tweets = () => {
 
   const handleFilterChange = evt => {
     setFilter(evt.target.value);
+    setPaginationIdx(3);
   };
+
+  const increasePagIdx = () => setPaginationIdx(prev => prev + 3);
 
   useEffect(() => {
     // фетчимо твіти і список
@@ -34,6 +38,7 @@ const Tweets = () => {
     getTweets()
       .then(({ tweetsData, followingList }) => {
         setFollowingIds(followingList);
+        // додаємо для кожного твіта поле following (true or false)
         setRenderData(() => updateTweets(tweetsData, followingList));
         setStatus('fulfilled');
       })
@@ -45,6 +50,7 @@ const Tweets = () => {
   useEffect(() => {
     if (tweetId === undefined) return;
 
+    // змінюємо значення followers при кліку на кнопку
     setRenderData(prevData => {
       const data = prevData;
       const curInx = data.findIndex(tweet => tweet.id === tweetId);
@@ -53,6 +59,7 @@ const Tweets = () => {
 
       data[curInx].following = !data[curInx].following;
 
+      // відправляємо зміни на mockapi (крім поля following)
       putTweet({
         id: data[curInx].id,
         user: data[curInx].user,
@@ -67,6 +74,7 @@ const Tweets = () => {
   }, [tweetId]);
 
   useEffect(() => {
+    // після кожної зміни followingIds відправляємо оновлений масив на mockapi
     putFollowingList(followingIds);
   }, [followingIds]);
 
@@ -74,11 +82,12 @@ const Tweets = () => {
     <main>
       {status === 'fulfilled' && (
         <>
-          {' '}
           <Panel handleFilterChange={handleFilterChange} />
           <TweetList
             renderData={filterTweets(filter, renderData)}
             handleCardClick={handleCardClick}
+            padinationIdx={padinationIdx}
+            handleClickLoadMore={increasePagIdx}
           />
         </>
       )}

@@ -14,6 +14,7 @@ export const Btn = styled.button`
   box-shadow: 3px 3px 4px #000000, inset 3px 3px 4px #000000;
   transition: box-shadow 100ms linear, color 300ms linear,
     border-color 300ms linear;
+  cursor: pointer;
 
   :hover,
   :focus {

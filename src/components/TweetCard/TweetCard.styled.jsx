@@ -115,6 +115,7 @@ export const Button = styled.button`
   background-color: ${props => (props.following ? '#5CD3A8' : '#EBD8FF')};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
+  cursor: pointer;
 `;
 
 export const UserName = styled.h3`
