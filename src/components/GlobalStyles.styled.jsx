@@ -3,13 +3,10 @@ import 'modern-normalize';
 
 export const GlobalStyles = ({ src }) => injectGlobal`
    body {
-    /* background-image: url(${src});
-     */
-    background-color: #3f3c3c;
+    background-image: url(${src});
     background-size: cover;
     background-repeat: no-repeat;
    background-attachment: fixed ;
-    /* padding: 50px 30px; */
     margin: 0;
    font-family: 'Mina', sans-serif;
     -webkit-font-smoothing: antialiased;

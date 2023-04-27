@@ -5,7 +5,7 @@ import {
   Container,
   Logo,
   DecorativeImage,
-  Line,
+  // Line,
   OuterCircle,
   Icon,
   InnerCircle,
@@ -25,7 +25,6 @@ const TweetCard = ({
   followers,
   avatar,
   handleClick,
-  dropPagIdxToInial,
   user,
 }) => (
   <Container>
@@ -33,7 +32,7 @@ const TweetCard = ({
     <DecorativeImage src={decorativeImg} alt="decorative element" />
     <UserName>{user}</UserName>
 
-    <Line />
+    {/* <Line /> */}
     <OuterCircle>
       <InnerCircle>
         <Icon src={avatar} alt="user icon" />

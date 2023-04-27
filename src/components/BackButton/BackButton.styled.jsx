@@ -18,11 +18,7 @@ export const Btn = styled.button`
 
   :hover,
   :focus {
-    color: #ed62ff;
-    border-color: #ed62ff;
-  }
-
-  :active {
-    box-shadow: 3px 3px 5px #000000, inset 0px 3px 5px #000000;
+    color: #ffffff;
+    box-shadow: 6px 6px 4px #000000, inset 6px 6px 4px #000000;
   }
 `;

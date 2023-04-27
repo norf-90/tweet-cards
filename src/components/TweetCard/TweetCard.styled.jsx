@@ -19,6 +19,19 @@ export const Container = styled.div`
   :hover h3 {
     transform: translate(-50%) scale(150%);
   }
+
+  ::before {
+    position: absolute;
+    top: 214px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #ebd8ff;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+      inset 0px -1.71846px 3.43693px #ae7be3,
+      inset 0px 3.43693px 2.5777px #fbf8ff;
+    content: '';
+  }
 `;
 
 export const Logo = styled.img`
@@ -33,17 +46,6 @@ export const DecorativeImage = styled.img`
   left: 36px;
   width: 308px;
   height: 168px;
-`;
-
-export const Line = styled.div`
-  position: absolute;
-  top: 214px;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: #ebd8ff;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
 `;
 
 export const OuterCircle = styled.div`
@@ -114,6 +116,7 @@ export const Button = styled.button`
 
   background-color: ${props => (props.following ? '#5CD3A8' : '#EBD8FF')};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border: none;
   border-radius: 10.3108px;
   cursor: pointer;
 `;
